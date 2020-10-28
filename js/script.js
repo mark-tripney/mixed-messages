@@ -1,44 +1,51 @@
 const quoteBlock = document.querySelector("blockquote p");
+const char = document.querySelector(".character");
+const source = document.querySelector("cite");
 
 const quoteGenerator = {
-  lastQuoteIndex: [0],
   quotes: [
     {
-      quote: "That wizard came from the Moon!",
-      source: "Ghost",
+      quote: "That Wizard came from the Moon!",
+      character: "Ghost",
       game: "Destiny",
     },
     {
       quote:
         "I don't even have time to explain why I don't have time to explain.",
-      source: "Exo Stranger",
+      character: "Exo Stranger",
       game: "Destiny",
     },
     {
       quote: "Ramen's on me!",
-      source: "Cayde-6",
+      character: "Cayde-6",
       game: "Destiny 2",
     },
     {
       quote: "The truth is ours to discover.",
-      source: "Eris Morn",
+      character: "Eris Morn",
       game: "Destiny 2",
     },
   ],
-  get getQuote() {
+  getQuote() {
     const randomIndex = Math.floor(Math.random() * this.quotes.length);
     return this.quotes[randomIndex];
+  },
+  buildQuote() {
+    const { quote, character, game } = quoteGenerator.getQuote();
+    quoteBlock.innerText = quote;
+    char.innerText = `— ${character}, `;
+    source.innerText = game;
   },
 };
 
 function timeout() {
   setTimeout(function () {
-    quoteBlock.innerText = quoteGenerator.getQuote.quote;
+    quoteGenerator.buildQuote();
     timeout();
-  }, 1000);
+  }, 3000);
 }
 
 // Set initial quote
-quoteBlock.innerText = quoteGenerator.getQuote.quote;
+quoteGenerator.buildQuote();
 // Start cycling on timer
 timeout();
