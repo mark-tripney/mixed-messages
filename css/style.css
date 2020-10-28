@@ -1,3 +1,9 @@
+html {
+  background-color: #000;
+  color: #fff;
+  box-sizing: border-box;
+}
+
 .wrapper {
   height: 100vh;
   display: grid;
@@ -7,9 +13,8 @@
 
 blockquote p {
   font-family: sans-serif;
-  font-size: 3em;
+  font-size: 4em;
   padding: 15px 30px;
-  background: #eee;
   border-radius: 5px;
   margin-top: 0;
   margin-bottom: 10px;
@@ -26,4 +31,10 @@ blockquote p::after {
 footer {
   font-size: 1.2em;
   text-align: right;
+  font-size: 2em;
+  padding-right: 2em;
+}
+
+div.character {
+  display: inline;
 }
